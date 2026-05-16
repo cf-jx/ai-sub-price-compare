@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import type { PriceEntry, CountryData } from "@/lib/data";
 
 const REGIONS: Record<string, string> = {
@@ -83,54 +83,84 @@ export default function PriceTable({
   const mostExpensive = filtered[filtered.length - 1];
   const isZh = locale === "zh";
 
+  // Keyboard navigation for tabs
+  const handleTabKeyDown = useCallback((e: React.KeyboardEvent) => {
+    const tabs = ["web", "appstore"] as const;
+    const idx = tabs.indexOf(tab);
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      setTab(tabs[(idx + 1) % tabs.length]);
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      setTab(tabs[(idx - 1 + tabs.length) % tabs.length]);
+    }
+  }, [tab]);
+
   return (
     <div>
       {/* Tabs */}
-      <div className="flex gap-0 mb-6">
+      <div role="tablist" aria-label={isZh ? "价格渠道" : "Price source"} className="flex gap-0 mb-6">
         <button
+          role="tab"
+          aria-selected={tab === "web"}
+          tabIndex={tab === "web" ? 0 : -1}
           onClick={() => setTab("web")}
+          onKeyDown={handleTabKeyDown}
           className={`px-5 py-2 text-[13px] font-medium transition-colors border-b-2 ${
             tab === "web"
-              ? "tab-active text-[#1d1d1f] border-[#0071e3]"
-              : "text-[#86868b] border-transparent hover:text-[#1d1d1f]"
+              ? "tab-active border-[var(--color-apple-blue)]"
+              : "text-[var(--color-apple-text-secondary)] border-transparent hover:text-[var(--color-apple-text)]"
           }`}
         >
           {isZh ? "网页端订阅" : "Web Subscription"}
-          <span className="ml-1.5 text-[#86868b] text-[12px]">({webPrices.length})</span>
+          <span className="ml-1.5 text-[var(--color-apple-text-secondary)] text-[12px]">({webPrices.length})</span>
         </button>
         <button
+          role="tab"
+          aria-selected={tab === "appstore"}
+          tabIndex={tab === "appstore" ? 0 : -1}
           onClick={() => setTab("appstore")}
+          onKeyDown={handleTabKeyDown}
           className={`px-5 py-2 text-[13px] font-medium transition-colors border-b-2 ${
             tab === "appstore"
-              ? "tab-active text-[#1d1d1f] border-[#0071e3]"
-              : "text-[#86868b] border-transparent hover:text-[#1d1d1f]"
+              ? "tab-active border-[var(--color-apple-blue)]"
+              : "text-[var(--color-apple-text-secondary)] border-transparent hover:text-[var(--color-apple-text)]"
           }`}
         >
           App Store
-          <span className="ml-1.5 text-[#86868b] text-[12px]">({appStorePrices.length})</span>
+          <span className="ml-1.5 text-[var(--color-apple-text-secondary)] text-[12px]">({appStorePrices.length})</span>
         </button>
       </div>
 
       {/* Toolbar */}
-      <div className="flex gap-2 mb-5 flex-wrap">
+      <div className="flex gap-2 mb-5 flex-wrap" role="search" aria-label={isZh ? "筛选价格" : "Filter prices"}>
         <div className="relative">
+          <label className="sr-only" htmlFor="country-search">
+            {isZh ? "搜索国家" : "Search country"}
+          </label>
           <input
+            id="country-search"
             type="text"
             placeholder={isZh ? "搜索国家..." : "Search country..."}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-[180px] h-8 pl-8 pr-3 rounded-[8px] border border-[#d2d2d7] text-[13px]
-                       bg-white text-[#1d1d1f] placeholder:text-[#86868b] focus:outline-none focus:border-[#0071e3]"
+            className="w-[180px] h-8 pl-8 pr-3 rounded-[8px] border border-[var(--color-apple-border)] text-[13px]
+                       bg-white text-[var(--color-apple-text)] placeholder:text-[var(--color-apple-text-secondary)]
+                       focus:outline-none focus:border-[var(--color-apple-blue)]"
           />
-          <svg className="absolute left-2.5 top-2 w-3.5 h-3.5 text-[#86868b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="absolute left-2.5 top-2 w-3.5 h-3.5 text-[var(--color-apple-text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
+        <label className="sr-only" htmlFor="region-filter">
+          {isZh ? "筛选地区" : "Filter region"}
+        </label>
         <select
+          id="region-filter"
           value={regionFilter}
           onChange={(e) => setRegionFilter(e.target.value)}
-          className="h-8 px-3 rounded-[8px] border border-[#d2d2d7] text-[13px]
-                     bg-white text-[#1d1d1f] focus:outline-none focus:border-[#0071e3]"
+          className="h-8 px-3 rounded-[8px] border border-[var(--color-apple-border)] text-[13px]
+                     bg-white text-[var(--color-apple-text)] focus:outline-none focus:border-[var(--color-apple-blue)]"
         >
           <option value="all">{isZh ? "全部地区" : "All Regions"}</option>
           {regions.map((r) => (
@@ -139,8 +169,9 @@ export default function PriceTable({
         </select>
         <button
           onClick={() => setSortDir((d) => (d === "asc" ? "desc" : "asc"))}
-          className="h-8 px-3 rounded-[8px] border border-[#d2d2d7] text-[13px]
-                     bg-white text-[#1d1d1f] hover:bg-[#f5f5f7] transition-colors"
+          className="h-8 px-3 rounded-[8px] border border-[var(--color-apple-border)] text-[13px]
+                     bg-white text-[var(--color-apple-text)] hover:bg-[var(--color-apple-bg)] transition-colors"
+          aria-label={sortDir === "asc" ? (isZh ? "当前：最便宜优先" : "Current: cheapest first") : (isZh ? "当前：最贵优先" : "Current: priciest first")}
         >
           {sortDir === "asc" ? "↑ Cheapest" : "↓ Priciest"}
         </button>
@@ -148,23 +179,17 @@ export default function PriceTable({
 
       {/* Summary */}
       {cheapest && mostExpensive && filtered.length > 1 && (
-        <div className="flex gap-2 mb-5 flex-wrap">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[980px] bg-[#e8f8ed] text-[12px]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#34c759]" />
-            <span className="text-[#1d1d1f]">
-              {countryMap.get(cheapest.countryCode)?.flagEmoji}{" "}
-              {countryMap.get(cheapest.countryCode)?.nameEn}
-            </span>
-            <span className="font-semibold text-[#1a7f37]">
+        <div className="flex gap-2 mb-5 flex-wrap" aria-label={isZh ? "价格摘要" : "Price summary"}>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[980px] bg-[var(--color-apple-green-bg)] text-[12px]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-apple-green)]" aria-hidden="true" />
+            <span>{countryMap.get(cheapest.countryCode)?.flagEmoji} {countryMap.get(cheapest.countryCode)?.nameEn}</span>
+            <span className="font-semibold text-[var(--color-apple-green-text)]">
               {cheapest.symbol}{cheapest.displayAmount}
             </span>
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[980px] bg-[#fff0f0] text-[12px]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ff3b30]" />
-            <span className="text-[#1d1d1f]">
-              {countryMap.get(mostExpensive.countryCode)?.flagEmoji}{" "}
-              {countryMap.get(mostExpensive.countryCode)?.nameEn}
-            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-apple-red)]" aria-hidden="true" />
+            <span>{countryMap.get(mostExpensive.countryCode)?.flagEmoji} {countryMap.get(mostExpensive.countryCode)?.nameEn}</span>
             <span className="font-semibold text-[#d92c20]">
               {mostExpensive.symbol}{mostExpensive.displayAmount}
             </span>
@@ -176,13 +201,16 @@ export default function PriceTable({
       <div className="apple-card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="apple-table">
+            <caption className="sr-only">
+              {isZh ? `${tab === "web" ? "网页端" : "App Store"} 订阅价格对比表。${sortDir === "asc" ? "按价格从低到高排序" : "按价格从高到低排序"}。` : `${tab === "web" ? "Web" : "App Store"} subscription price comparison. Sorted ${sortDir === "asc" ? "cheapest first" : "priciest first"}.`}
+            </caption>
             <thead>
               <tr>
-                <th>{isZh ? "国家" : "Country"}</th>
-                <th>{isZh ? "价格" : "Price"}</th>
-                <th>{isZh ? "税务" : "Tax"}</th>
-                <th>≈ USD</th>
-                <th>vs US</th>
+                <th scope="col">{isZh ? "国家" : "Country"}</th>
+                <th scope="col">{isZh ? "价格" : "Price"}</th>
+                <th scope="col">{isZh ? "税务" : "Tax"}</th>
+                <th scope="col">≈ USD</th>
+                <th scope="col">vs US</th>
               </tr>
             </thead>
             <tbody>
@@ -196,32 +224,28 @@ export default function PriceTable({
                   <tr key={entry.countryCode}>
                     <td>
                       <div className="flex items-center gap-2">
-                        <span className="text-[15px]">{country?.flagEmoji}</span>
+                        <span className="text-[15px]" aria-hidden="true">{country?.flagEmoji}</span>
                         <div>
-                          <div className="text-[14px] font-medium text-[#1d1d1f]">
-                            {country?.nameEn ?? entry.countryCode}
-                          </div>
-                          <div className="text-[11px] text-[#86868b]">
-                            {entry.currencyCode}
-                          </div>
+                          <div className="text-[14px] font-medium">{country?.nameEn ?? entry.countryCode}</div>
+                          <div className="text-[11px] text-[var(--color-apple-text-secondary)]">{entry.currencyCode}</div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <span className="text-[15px] font-semibold text-[#1d1d1f] tabular-nums">
+                      <span className="text-[15px] font-semibold tabular-nums">
                         {entry.symbol}{entry.displayAmount.toLocaleString()}
                       </span>
                     </td>
                     <td><TaxBadge entry={entry} /></td>
                     <td>
-                      <span className="text-[14px] text-[#86868b] tabular-nums">
+                      <span className="text-[14px] text-[var(--color-apple-text-secondary)] tabular-nums">
                         ${entry.calculatedUsdEquivalent.toFixed(2)}
                       </span>
                     </td>
                     <td>
                       <span
                         className={`text-[14px] font-semibold tabular-nums ${
-                          isCheap ? "text-[#34c759]" : isExpensive ? "text-[#ff3b30]" : "text-[#86868b]"
+                          isCheap ? "text-[var(--color-apple-green)]" : isExpensive ? "text-[var(--color-apple-red)]" : "text-[var(--color-apple-text-secondary)]"
                         }`}
                       >
                         {diff > 0 ? "+" : ""}{diff.toFixed(1)}%
@@ -235,8 +259,8 @@ export default function PriceTable({
         </div>
 
         {filtered.length === 0 && (
-          <div className="py-16 text-center">
-            <p className="text-[15px] text-[#86868b]">
+          <div className="py-16 text-center" role="status">
+            <p className="text-[15px] text-[var(--color-apple-text-secondary)]">
               {isZh ? "暂无该渠道数据。" : "No data for this source yet."}
             </p>
           </div>
