@@ -73,18 +73,30 @@ async function main() {
   }
   console.log(`  Tab opened: targetId=${targetId}`);
 
-  // Step 2: Wait for login + extract session
-  console.log("[2/4] Checking login state...");
-  const loggedIn = await cdpEval(
+  // Step 2: Wait for page load and check login state
+  console.log("[2/4] Waiting for page load + checking login state...");
+  await new Promise((r) => setTimeout(r, 5000));
+
+  // Check if we have a valid session by looking for the pricing API to be accessible
+  const loginCheck = await cdpEval(
     targetId,
-    "document.cookie.includes('__Secure-next-auth.session-token') ? 'ok' : 'not_logged_in'"
+    `(async () => {
+      try {
+        const res = await fetch("https://chatgpt.com/backend-api/checkout_pricing_config/configs/US");
+        if (res.ok) return "logged_in";
+        return "api_failed_" + res.status;
+      } catch(e) {
+        return "error_" + e.message;
+      }
+    })()`
   );
-  if (loggedIn !== '"ok"') {
-    console.error("  NOT LOGGED IN. Please log into chatgpt.com in Chrome first.");
+  console.log(`  Login check: ${loginCheck}`);
+  if (!loginCheck.includes("logged_in")) {
+    console.error("  Cannot access ChatGPT pricing API. Check login state in Chrome.");
     await cdpClose(targetId);
     process.exit(1);
   }
-  console.log("  Logged in ✓");
+  console.log("  ChatGPT API accessible ✓");
 
   // Step 3: Fetch pricing for each country via the internal API
   console.log(`[3/4] Fetching pricing for ${PRIORITY_COUNTRIES.length} countries...`);
