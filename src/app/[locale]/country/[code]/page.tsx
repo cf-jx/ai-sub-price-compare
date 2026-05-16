@@ -28,18 +28,18 @@ export default async function CountryPage({
   const name = locale === "zh" ? country.nameZh : country.nameEn;
 
   return (
-    <div className="mx-auto max-w-[1200px] px-5 sm:px-8 py-10 sm:py-14">
-      <h1 className="text-[36px] sm:text-[44px] font-semibold tracking-[-0.02em] text-[#1d1d1f] mb-4">
+    <div className="mx-auto max-w-[1152px] px-5 sm:px-8 py-10 sm:py-14">
+      <h1 className="text-[2.25rem] sm:text-[3rem] font-semibold tracking-[-0.02em] text-[var(--color-text)] mb-3">
         {country.flagEmoji} {name}
       </h1>
-      <p className="text-[17px] text-[#86868b] mb-3">
+      <p className="text-[1.0625rem] text-[var(--color-text-secondary)] mb-5 max-w-[560px]">
         {cnt.all_products.replace("{country}", name)}
       </p>
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-[980px] bg-[#f5f5f7] text-[14px] text-[#1d1d1f]">
-        <span className="text-[#86868b]">{locale === "zh" ? "货币" : "Currency"}:</span>
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-[980px] bg-[var(--color-accent-subtle)] text-[0.875rem] text-[var(--color-text)]">
+        <span className="text-[var(--color-text-tertiary)]">{locale === "zh" ? "货币" : "Currency"}:</span>
         {country.currencyCode} ({country.currencySymbol})
         {country.usesUsdForWeb && (
-          <span className="badge badge-amber text-[11px]">
+          <span className="badge badge-warn text-[0.6875rem]">
             {locale === "zh" ? "网页端 USD 定价" : "Web: USD pricing"}
           </span>
         )}

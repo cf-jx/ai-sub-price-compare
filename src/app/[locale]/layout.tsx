@@ -38,32 +38,32 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className="min-h-screen">
-        <nav className="glass-nav sticky top-0 z-50">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
-            <div className="flex h-12 items-center justify-between">
+        <nav className="nav-bar sticky top-0 z-50">
+          <div className="mx-auto max-w-[1152px] px-5 sm:px-8">
+            <div className="flex h-11 items-center justify-between">
               <Link
                 href={`/${locale}/`}
-                className="text-[15px] font-semibold tracking-tight text-[#1d1d1f] no-underline"
+                className="text-[0.9375rem] font-semibold tracking-[-0.01em] text-[var(--color-text)] no-underline"
               >
                 AISubPrice
               </Link>
-              <div className="flex items-center gap-7">
+              <div className="flex items-center gap-6">
                 <Link
                   href={`/${locale}/`}
-                  className="text-[13px] text-[#1d1d1f]/75 hover:text-[#1d1d1f] transition-colors"
+                  className="text-[0.8125rem] font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors duration-150"
                 >
                   {nav.home}
                 </Link>
                 <Link
                   href={`/${locale}/compare/`}
-                  className="text-[13px] text-[#1d1d1f]/75 hover:text-[#1d1d1f] transition-colors"
+                  className="text-[0.8125rem] font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors duration-150"
                 >
                   {nav.compare}
                 </Link>
-                <div className="w-px h-4 bg-black/10" />
+                <div className="w-px h-4 bg-[var(--color-border)]" />
                 <Link
                   href={`/${locale === "zh" ? "en" : "zh"}/`}
-                  className="text-[13px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+                  className="text-[0.75rem] font-medium text-[var(--color-text-tertiary)] hover:text-[var(--color-text)] transition-colors duration-150 uppercase tracking-[0.04em]"
                 >
                   {isZh ? "EN" : "中文"}
                 </Link>
@@ -72,9 +72,9 @@ export default async function LocaleLayout({
           </div>
         </nav>
         <main>{children}</main>
-        <footer className="border-t border-[#d2d2d7] mt-20">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-8 py-6">
-            <p className="text-[11px] text-[#86868b] text-center tracking-wide">
+        <footer className="border-t border-[var(--color-border-light)] mt-20">
+          <div className="mx-auto max-w-[1152px] px-5 sm:px-8 py-5">
+            <p className="text-[0.6875rem] text-[var(--color-text-tertiary)] text-center tracking-[0.02em]">
               {isZh
                 ? "数据仅供参考。实际价格以各平台结账页面为准。"
                 : "Prices for reference only. Actual charges may vary — check provider checkout pages."}

@@ -35,38 +35,41 @@ export default async function ProductPage({
   const desc = locale === "zh" ? product.descriptionZh : product.descriptionEn;
 
   return (
-    <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+    <div className="mx-auto max-w-[1152px] px-5 sm:px-8">
       {/* Header */}
       <div className="py-10 sm:py-14">
-        <div className="flex items-center gap-3 mb-3">
-          <h1 className="text-[36px] sm:text-[48px] font-semibold tracking-[-0.02em] text-[#1d1d1f]">
+        <div className="flex items-center gap-3 mb-2 flex-wrap">
+          <h1 className="text-[2.25rem] sm:text-[3rem] font-semibold tracking-[-0.02em] text-[var(--color-text)]">
             {product.name}
           </h1>
-          <span className="badge badge-blue mt-3">
+          <span className={`badge ${
+            product.pricingModel === "regional" ? "badge-good" : "badge-muted"
+          }`}>
             {product.pricingModel === "regional"
               ? (locale === "zh" ? "区域定价" : "Regional")
               : (locale === "zh" ? "统一定价" : "Uniform")}
           </span>
         </div>
-        <p className="text-[17px] text-[#86868b] leading-relaxed max-w-[600px]">{desc}</p>
+        <p className="text-[1.0625rem] text-[var(--color-text-secondary)] leading-relaxed max-w-[600px]">
+          {desc}
+        </p>
         {product.basePriceUsd != null && (
-          <p className="text-[14px] text-[#86868b] mt-1">
+          <p className="text-[0.875rem] text-[var(--color-text-tertiary)] mt-1.5">
             US {common.monthly}: ${product.basePriceUsd}
           </p>
         )}
       </div>
 
-      {/* Plan tabs — jump to section */}
+      {/* Plan tabs */}
       <div className="flex gap-3 mb-10 flex-wrap">
         {product.plans.map((plan) => (
           <a
             key={plan.slug}
             href={`#plan-${plan.slug}`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[980px] text-[14px] font-medium
-                       bg-white border border-[#d2d2d7] text-[#1d1d1f] hover:border-[#86868b] hover:shadow-sm transition-all"
+            className="btn-pill"
           >
             {plan.name}
-            <span className="text-[12px] text-[#86868b]">
+            <span className="text-[0.6875rem] text-[var(--color-text-tertiary)]">
               {plan.billingPeriod === "monthly" ? common.monthly : common.annual}
             </span>
           </a>
@@ -79,12 +82,12 @@ export default async function ProductPage({
         const appStorePrices = prices?.appStorePrices[plan.slug] ?? [];
 
         return (
-          <section key={plan.slug} id={`plan-${plan.slug}`} className="mb-16">
-            <div className="flex items-baseline gap-3 mb-6">
-              <h2 className="text-[24px] font-semibold tracking-[-0.01em] text-[#1d1d1f]">
+          <section key={plan.slug} id={`plan-${plan.slug}`} className="mb-14">
+            <div className="flex items-baseline gap-3 mb-5">
+              <h2 className="text-[1.375rem] font-semibold tracking-[-0.01em] text-[var(--color-text)]">
                 {plan.name}
               </h2>
-              <span className="text-[14px] text-[#86868b]">
+              <span className="text-[0.875rem] text-[var(--color-text-tertiary)]">
                 {locale === "zh" ? plan.descriptionZh : plan.descriptionEn}
               </span>
             </div>
