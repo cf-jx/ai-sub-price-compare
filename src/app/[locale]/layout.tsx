@@ -15,24 +15,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const isZh = locale === "zh";
   return {
-    title: isZh ? "AI 订阅价格对比" : "AI Subscription Price Comparison",
+    title: isZh ? "AI 订阅价格对比" : "AI Subscription Prices",
     description: isZh
-      ? "全球 AI 工具订阅价格对比。ChatGPT、Claude、Gemini、Perplexity 等 — 网页端和 App Store 价格，含税详情一览。"
-      : "Compare AI subscription prices across countries. ChatGPT, Claude, Gemini, Perplexity & more — Web and App Store pricing with tax details.",
+      ? "ChatGPT、Claude、Gemini 等 AI 工具在各国订阅价格对比。网页端 & App Store，含税详情。"
+      : "Compare ChatGPT, Claude, Gemini & more across countries. Web & App Store pricing with tax.",
   };
-}
-
-function t(obj: Record<string, unknown>, path: string): string {
-  const keys = path.split(".");
-  let val: unknown = obj;
-  for (const k of keys) {
-    if (typeof val === "object" && val !== null) {
-      val = (val as Record<string, unknown>)[k];
-    } else {
-      return path;
-    }
-  }
-  return typeof val === "string" ? val : path;
 }
 
 export default async function LocaleLayout({
@@ -50,41 +37,47 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className="bg-white text-gray-900 antialiased">
-        <nav className="border-b border-gray-200">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-16 items-center justify-between">
-              <div className="flex items-center gap-8">
-                <Link href={`/${locale}`} className="text-xl font-bold text-blue-600">
-                  AISubPrice
-                </Link>
-                <div className="hidden sm:flex gap-6 text-sm font-medium text-gray-600">
-                  <Link href={`/${locale}`} className="hover:text-gray-900">
-                    {nav.home}
-                  </Link>
-                  <Link href={`/${locale}/compare`} className="hover:text-gray-900">
-                    {nav.compare}
-                  </Link>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
+      <body className="min-h-screen">
+        <nav className="glass-nav sticky top-0 z-50">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+            <div className="flex h-12 items-center justify-between">
+              <Link
+                href={`/${locale}/`}
+                className="text-[15px] font-semibold tracking-tight text-[#1d1d1f] no-underline"
+              >
+                AISubPrice
+              </Link>
+              <div className="flex items-center gap-7">
                 <Link
-                  href={`/${locale === "zh" ? "en" : "zh"}`}
-                  className="text-sm text-gray-500 hover:text-gray-700"
+                  href={`/${locale}/`}
+                  className="text-[13px] text-[#1d1d1f]/75 hover:text-[#1d1d1f] transition-colors"
                 >
-                  {isZh ? "English" : "中文"}
+                  {nav.home}
+                </Link>
+                <Link
+                  href={`/${locale}/compare/`}
+                  className="text-[13px] text-[#1d1d1f]/75 hover:text-[#1d1d1f] transition-colors"
+                >
+                  {nav.compare}
+                </Link>
+                <div className="w-px h-4 bg-black/10" />
+                <Link
+                  href={`/${locale === "zh" ? "en" : "zh"}/`}
+                  className="text-[13px] text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+                >
+                  {isZh ? "EN" : "中文"}
                 </Link>
               </div>
             </div>
           </div>
         </nav>
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">{children}</main>
-        <footer className="border-t border-gray-200 mt-16">
-          <div className="mx-auto max-w-7xl px-4 py-8 text-center text-sm text-gray-500">
-            <p>
+        <main>{children}</main>
+        <footer className="border-t border-[#d2d2d7] mt-20">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-8 py-6">
+            <p className="text-[11px] text-[#86868b] text-center tracking-wide">
               {isZh
-                ? "数据仅供参考。价格可能随时变动，实际扣款金额以各平台结账页面为准。"
-                : "Prices are for reference only. Actual charges may vary — check the provider's checkout page."}
+                ? "数据仅供参考。实际价格以各平台结账页面为准。"
+                : "Prices for reference only. Actual charges may vary — check provider checkout pages."}
             </p>
           </div>
         </footer>

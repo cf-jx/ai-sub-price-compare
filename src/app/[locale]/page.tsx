@@ -6,6 +6,15 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+const PRODUCT_ICONS: Record<string, string> = {
+  chatgpt: "◇",
+  claude: "✦",
+  gemini: "◆",
+  perplexity: "◈",
+  cursor: "▷",
+  midjourney: "◎",
+};
+
 export default async function HomePage({
   params,
 }: {
@@ -20,35 +29,40 @@ export default async function HomePage({
 
   return (
     <div>
-      <section className="text-center py-16">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+      {/* Hero */}
+      <section className="hero-gradient text-center py-24 sm:py-32">
+        <h1 className="text-[44px] sm:text-[64px] font-semibold tracking-[-0.02em] leading-[1.05] text-[#1d1d1f]">
           {home.hero_title}
         </h1>
-        <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
+        <p className="mt-5 text-[19px] sm:text-[21px] leading-[1.4] text-[#86868b] max-w-[560px] mx-auto tracking-[-0.01em]">
           {home.hero_subtitle}
         </p>
       </section>
 
-      <section>
-        <h2 className="text-2xl font-semibold mb-6">{home.popular_products}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Products */}
+      <section className="mx-auto max-w-[1200px] px-5 sm:px-8 -mt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map((product) => (
             <Link
               key={product.slug}
-              href={`/${locale}/product/${product.slug}`}
-              className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition"
+              href={`/${locale}/product/${product.slug}/`}
+              className="apple-card p-5 group"
             >
-              <div className="w-8 h-8 rounded bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm mb-2">
-                {product.name[0]}
+              <div className="w-9 h-9 rounded-[12px] bg-[#f5f5f7] flex items-center justify-center text-[18px] text-[#1d1d1f]/60 mb-4 group-hover:scale-110 transition-transform duration-300">
+                {PRODUCT_ICONS[product.slug] || product.name[0]}
               </div>
-              <h3 className="font-semibold text-sm">{product.name}</h3>
-              <p className="text-xs text-gray-500 mt-1">
+              <h3 className="text-[15px] font-semibold text-[#1d1d1f] mb-1">
+                {product.name}
+              </h3>
+              <p className="text-[13px] text-[#86868b] mb-3">
                 {product.basePriceUsd != null
                   ? `$${product.basePriceUsd}${common.monthly}`
                   : "Free"}
               </p>
-              <span className="inline-block mt-2 text-xs px-2 py-0.5 rounded bg-gray-100 text-gray-600">
-                {product.pricingModel === "regional" ? (locale === "zh" ? "区域定价" : "Regional") : (locale === "zh" ? "统一定价" : "Uniform")}
+              <span className="badge badge-gray">
+                {product.pricingModel === "regional"
+                  ? (locale === "zh" ? "区域定价" : "Regional")
+                  : (locale === "zh" ? "统一定价" : "Uniform")}
               </span>
             </Link>
           ))}
@@ -56,23 +70,27 @@ export default async function HomePage({
       </section>
 
       {/* Cheapest Regions */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-semibold mb-4">{home.cheapest_regions}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+      <section className="mx-auto max-w-[1200px] px-5 sm:px-8 mt-20">
+        <h2 className="text-[28px] font-semibold tracking-[-0.01em] text-[#1d1d1f] mb-6">
+          {home.cheapest_regions}
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { country: "🇹🇷 Turkey", product: "ChatGPT App Store", save: "70%", slug: "chatgpt" },
             { country: "🇦🇷 Argentina", product: "ChatGPT App Store", save: "70%", slug: "chatgpt" },
             { country: "🇳🇬 Nigeria", product: "Claude Pro Web", save: "52%", slug: "claude" },
-            { country: "🇹🇷 Turkey", product: "Gemini AI Pro Web", save: "44%", slug: "gemini" },
+            { country: "🇹🇷 Turkey", product: "Gemini AI Pro", save: "44%", slug: "gemini" },
           ].map((item, i) => (
             <Link
               key={i}
-              href={`/${locale}/product/${item.slug}`}
-              className="p-3 border border-green-200 rounded-lg bg-green-50 hover:bg-green-100 transition"
+              href={`/${locale}/product/${item.slug}/`}
+              className="apple-card p-4 bg-[#f0faf4] border-[#34c759]/15 group"
             >
-              <div className="font-medium">{item.country}</div>
-              <div className="text-gray-500 text-xs">{item.product}</div>
-              <div className="text-green-600 font-semibold mt-1">{common.save_pct.replace("{percent}", item.save)}</div>
+              <div className="text-[13px] font-medium text-[#1d1d1f] mb-1">{item.country}</div>
+              <div className="text-[11px] text-[#86868b] mb-2">{item.product}</div>
+              <div className="text-[17px] font-semibold text-[#1a7f37] tracking-[-0.01em]">
+                {locale === "zh" ? `省 ${item.save}` : `Save ${item.save}`}
+              </div>
             </Link>
           ))}
         </div>

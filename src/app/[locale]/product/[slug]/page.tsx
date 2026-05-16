@@ -35,54 +35,59 @@ export default async function ProductPage({
   const desc = locale === "zh" ? product.descriptionZh : product.descriptionEn;
 
   return (
-    <div>
-      <div className="mb-8">
-        <div className="flex items-center gap-4 mb-2">
-          <h1 className="text-3xl font-bold">{product.name}</h1>
-          <span className="text-sm px-2 py-0.5 rounded bg-gray-100 text-gray-600">
+    <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+      {/* Header */}
+      <div className="py-10 sm:py-14">
+        <div className="flex items-center gap-3 mb-3">
+          <h1 className="text-[36px] sm:text-[48px] font-semibold tracking-[-0.02em] text-[#1d1d1f]">
+            {product.name}
+          </h1>
+          <span className="badge badge-blue mt-3">
             {product.pricingModel === "regional"
-              ? (locale === "zh" ? "区域定价" : "Regional Pricing")
-              : (locale === "zh" ? "统一定价" : "Uniform Pricing")}
+              ? (locale === "zh" ? "区域定价" : "Regional")
+              : (locale === "zh" ? "统一定价" : "Uniform")}
           </span>
         </div>
-        <p className="text-gray-500">{desc}</p>
+        <p className="text-[17px] text-[#86868b] leading-relaxed max-w-[600px]">{desc}</p>
         {product.basePriceUsd != null && (
-          <p className="text-sm text-gray-400 mt-1">
-            US base: ${product.basePriceUsd}{common.monthly}
+          <p className="text-[14px] text-[#86868b] mt-1">
+            US {common.monthly}: ${product.basePriceUsd}
           </p>
         )}
       </div>
 
-      <div className="mb-6">
-        <h2 className="text-lg font-semibold mb-3">{prod.plans}</h2>
-        <div className="flex gap-2 flex-wrap">
-          {product.plans.map((plan) => (
-            <a
-              key={plan.slug}
-              href={`#plan-${plan.slug}`}
-              className="px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-blue-300"
-            >
-              {plan.name}
-              <span className="text-gray-400 ml-1">
-                ({plan.billingPeriod === "monthly" ? common.monthly : common.annual})
-              </span>
-            </a>
-          ))}
-        </div>
+      {/* Plan tabs — jump to section */}
+      <div className="flex gap-3 mb-10 flex-wrap">
+        {product.plans.map((plan) => (
+          <a
+            key={plan.slug}
+            href={`#plan-${plan.slug}`}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[980px] text-[14px] font-medium
+                       bg-white border border-[#d2d2d7] text-[#1d1d1f] hover:border-[#86868b] hover:shadow-sm transition-all"
+          >
+            {plan.name}
+            <span className="text-[12px] text-[#86868b]">
+              {plan.billingPeriod === "monthly" ? common.monthly : common.annual}
+            </span>
+          </a>
+        ))}
       </div>
 
+      {/* Price sections per plan */}
       {product.plans.map((plan) => {
         const webPrices = prices?.webPrices[plan.slug] ?? [];
         const appStorePrices = prices?.appStorePrices[plan.slug] ?? [];
 
         return (
-          <section key={plan.slug} id={`plan-${plan.slug}`} className="mb-12">
-            <h3 className="text-xl font-semibold mb-4">
-              {plan.name}
-              <span className="text-sm text-gray-400 ml-2 font-normal">
+          <section key={plan.slug} id={`plan-${plan.slug}`} className="mb-16">
+            <div className="flex items-baseline gap-3 mb-6">
+              <h2 className="text-[24px] font-semibold tracking-[-0.01em] text-[#1d1d1f]">
+                {plan.name}
+              </h2>
+              <span className="text-[14px] text-[#86868b]">
                 {locale === "zh" ? plan.descriptionZh : plan.descriptionEn}
               </span>
-            </h3>
+            </div>
             <PriceTable
               webPrices={webPrices}
               appStorePrices={appStorePrices}

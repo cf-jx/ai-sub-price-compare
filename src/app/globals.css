@@ -1,17 +1,146 @@
 @import "tailwindcss";
 
-@theme {
-  --color-green-50: #f0fdf4;
-  --color-green-100: #dcfce7;
-  --color-green-500: #22c55e;
-  --color-green-600: #16a34a;
-  --color-green-700: #15803d;
-  --color-red-50: #fef2f2;
-  --color-red-100: #fee2e2;
-  --color-red-500: #ef4444;
-  --color-red-600: #dc2626;
-  --color-blue-50: #eff6ff;
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-amber-500: #f59e0b;
+:root {
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0077ed;
+  --apple-text: #1d1d1f;
+  --apple-text-secondary: #86868b;
+  --apple-bg: #f5f5f7;
+  --apple-card: #ffffff;
+  --apple-border: #d2d2d7;
+  --apple-green: #34c759;
+  --apple-red: #ff3b30;
+  --apple-orange: #ff9500;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: var(--apple-bg);
+  color: var(--apple-text);
+  letter-spacing: -0.01em;
+}
+
+/* Apple-style frosted glass nav */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Apple-style buttons */
+.btn-primary {
+  background: var(--apple-blue);
+  color: white;
+  border-radius: 980px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background: var(--apple-blue-hover);
+  transform: scale(1.02);
+}
+
+/* Apple-style hero section */
+.hero-gradient {
+  background: radial-gradient(ellipse at 50% 0%, #e8e9ed 0%, #f5f5f7 60%);
+}
+
+/* Apple-style cards */
+.apple-card {
+  background: var(--apple-card);
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.apple-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* Apple-style pill badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 980px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.badge-green {
+  background: #e8f8ed;
+  color: #1a7f37;
+}
+.badge-amber {
+  background: #fff3e0;
+  color: #b45309;
+}
+.badge-blue {
+  background: #e8f2fd;
+  color: #1a56db;
+}
+.badge-gray {
+  background: #f0f0f2;
+  color: #6e6e73;
+}
+
+/* Apple-style table */
+.apple-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.apple-table th {
+  text-align: left;
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--apple-text-secondary);
+  border-bottom: 1px solid var(--apple-border);
+}
+.apple-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  vertical-align: middle;
+}
+.apple-table tr:hover td {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+/* Tab switcher */
+.tab-active {
+  color: var(--apple-text);
+  border-bottom: 2px solid var(--apple-blue);
+}
+
+/* Price highlighting */
+.price-cheap { color: var(--apple-green); font-weight: 600; }
+.price-expensive { color: var(--apple-red); font-weight: 600; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c4c4c6; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a8a8ab; }
+
+/* Focus */
+input:focus, select:focus, button:focus-visible {
+  outline: 2px solid var(--apple-blue);
+  outline-offset: 2px;
+  border-radius: 8px;
 }
