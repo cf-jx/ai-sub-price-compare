@@ -1,0 +1,16 @@
+{
+  "product": {
+    "id": 5, "name": "Cursor", "slug": "cursor",
+    "logoUrl": null, "descriptionEn": "AI-first code editor. Global uniform pricing.", "descriptionZh": "AI 代码编辑器。全球统一定价。",
+    "pricingModel": "uniform", "basePriceUsd": 20,
+    "plans": [
+      { "id": 9, "name": "Pro", "slug": "pro", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "2000 completions/mo", "descriptionZh": "2000 次补全/月" }
+    ]
+  },
+  "webPrices": {
+    "pro": [
+      { "countryCode": "US", "currencyCode": "USD", "symbol": "$", "displayAmount": 20.00, "displayTaxHandling": "exclusive", "taxType": "sales_tax", "taxPercent": null, "calculatedUsdEquivalent": 20.00, "premiumVsUsPct": 0, "source": "official", "fetchedAt": "2026-05-16" }
+    ]
+  },
+  "appStorePrices": { "pro": [] }
+}

@@ -1,0 +1,20 @@
+{
+  "product": {
+    "id": 4, "name": "Perplexity", "slug": "perplexity",
+    "logoUrl": null, "descriptionEn": "AI-powered search engine.", "descriptionZh": "AI 搜索引擎。",
+    "pricingModel": "regional", "basePriceUsd": 20,
+    "plans": [
+      { "id": 8, "name": "Pro", "slug": "pro", "billingPeriod": "annual", "tierOrder": 1, "descriptionEn": "Unlimited Pro searches", "descriptionZh": "无限 Pro 搜索" }
+    ]
+  },
+  "webPrices": {
+    "pro": [
+      { "countryCode": "US", "currencyCode": "USD", "symbol": "$", "displayAmount": 200.00, "displayTaxHandling": "exclusive", "taxType": "sales_tax", "taxPercent": null, "calculatedUsdEquivalent": 200.00, "premiumVsUsPct": 0, "source": "official", "fetchedAt": "2026-05-16" },
+      { "countryCode": "PK", "currencyCode": "PKR", "symbol": "Rs", "displayAmount": 49900, "displayTaxHandling": "inclusive", "taxType": "gst", "taxPercent": null, "calculatedUsdEquivalent": 179.15, "premiumVsUsPct": -10.4, "source": "subscriptionland", "fetchedAt": "2026-05-16" },
+      { "countryCode": "CA", "currencyCode": "CAD", "symbol": "C$", "displayAmount": 249.00, "displayTaxHandling": "exclusive", "taxType": "gst", "taxPercent": null, "calculatedUsdEquivalent": 181.97, "premiumVsUsPct": -9.0, "source": "subscriptionland", "fetchedAt": "2026-05-16" },
+      { "countryCode": "JP", "currencyCode": "JPY", "symbol": "¥", "displayAmount": 30000, "displayTaxHandling": "inclusive", "taxType": "jct", "taxPercent": 10, "calculatedUsdEquivalent": 191.25, "premiumVsUsPct": -4.4, "source": "subscriptionland", "fetchedAt": "2026-05-16" },
+      { "countryCode": "DE", "currencyCode": "EUR", "symbol": "€", "displayAmount": 199.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 19, "calculatedUsdEquivalent": 219.15, "premiumVsUsPct": 9.6, "source": "subscriptionland", "fetchedAt": "2026-05-16" }
+    ]
+  },
+  "appStorePrices": { "pro": [] }
+}

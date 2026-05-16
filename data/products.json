@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "name": "ChatGPT",
+    "slug": "chatgpt",
+    "logoUrl": null,
+    "descriptionEn": "OpenAI's conversational AI. Plus plan offers GPT-4o access, longer context, and priority responses.",
+    "descriptionZh": "OpenAI 对话式 AI。Plus 订阅提供 GPT-4o 访问、更长上下文和优先响应。",
+    "pricingModel": "regional",
+    "basePriceUsd": 20,
+    "plans": [
+      { "id": 1, "name": "Plus", "slug": "plus", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "GPT-4o, extended limits", "descriptionZh": "GPT-4o，扩展限额" },
+      { "id": 2, "name": "Pro", "slug": "pro", "billingPeriod": "monthly", "tierOrder": 2, "descriptionEn": "Unlimited access, 1M context", "descriptionZh": "无限使用，1M 上下文" },
+      { "id": 3, "name": "Go", "slug": "go", "billingPeriod": "monthly", "tierOrder": 0, "descriptionEn": "Stripped-down budget tier with ads", "descriptionZh": "精简廉价版，含广告" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Claude",
+    "slug": "claude",
+    "logoUrl": null,
+    "descriptionEn": "Anthropic's AI assistant. Pro plan offers extended usage and priority access during peak times.",
+    "descriptionZh": "Anthropic AI 助手。Pro 订阅提供扩展使用量和高峰时段优先访问。",
+    "pricingModel": "regional",
+    "basePriceUsd": 20,
+    "plans": [
+      { "id": 4, "name": "Pro", "slug": "pro", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "Extended usage, priority access", "descriptionZh": "扩展使用量，优先访问" },
+      { "id": 5, "name": "Max", "slug": "max", "billingPeriod": "monthly", "tierOrder": 2, "descriptionEn": "Maximum usage, 20x more", "descriptionZh": "最大使用量，20 倍更多" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Gemini",
+    "slug": "gemini",
+    "logoUrl": null,
+    "descriptionEn": "Google's AI. AI Pro plan includes Gemini Advanced model and 2TB Google One storage.",
+    "descriptionZh": "Google AI。AI Pro 订阅包含 Gemini Advanced 模型和 2TB Google One 存储。",
+    "pricingModel": "regional",
+    "basePriceUsd": 9.99,
+    "plans": [
+      { "id": 6, "name": "AI Pro", "slug": "ai-pro", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "Gemini Advanced + 2TB storage", "descriptionZh": "Gemini Advanced + 2TB 存储" },
+      { "id": 7, "name": "AI Ultra", "slug": "ai-ultra", "billingPeriod": "monthly", "tierOrder": 2, "descriptionEn": "Top tier, all features", "descriptionZh": "最高阶，全部功能" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Perplexity",
+    "slug": "perplexity",
+    "logoUrl": null,
+    "descriptionEn": "AI-powered search engine. Pro plan includes unlimited Pro searches and advanced model selection.",
+    "descriptionZh": "AI 搜索引擎。Pro 订阅包含无限 Pro 搜索和高级模型选择。",
+    "pricingModel": "regional",
+    "basePriceUsd": 20,
+    "plans": [
+      { "id": 8, "name": "Pro", "slug": "pro", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "Unlimited Pro searches", "descriptionZh": "无限 Pro 搜索" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Cursor",
+    "slug": "cursor",
+    "logoUrl": null,
+    "descriptionEn": "AI-first code editor. Global uniform pricing — no regional discounts.",
+    "descriptionZh": "AI 代码编辑器。全球统一定价。",
+    "pricingModel": "uniform",
+    "basePriceUsd": 20,
+    "plans": [
+      { "id": 9, "name": "Pro", "slug": "pro", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "2000 completions/mo", "descriptionZh": "2000 次补全/月" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Midjourney",
+    "slug": "midjourney",
+    "logoUrl": null,
+    "descriptionEn": "AI image generation. Global uniform USD pricing.",
+    "descriptionZh": "AI 图像生成。全球统一 USD 定价。",
+    "pricingModel": "uniform",
+    "basePriceUsd": 10,
+    "plans": [
+      { "id": 10, "name": "Basic", "slug": "basic", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "~200 images/mo", "descriptionZh": "~200 张/月" },
+      { "id": 11, "name": "Standard", "slug": "standard", "billingPeriod": "monthly", "tierOrder": 2, "descriptionEn": "Unlimited relax mode", "descriptionZh": "无限 relax 模式" }
+    ]
+  }
+]

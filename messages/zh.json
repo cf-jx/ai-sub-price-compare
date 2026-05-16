@@ -1,0 +1,62 @@
+{
+  "site": {
+    "title": "AI 订阅价格对比",
+    "description": "全球 AI 工具订阅价格对比。ChatGPT、Claude、Gemini、Perplexity 等 — 网页端和 App Store 价格，含税详情一览。",
+    "tagline": "找到最省钱的订阅方案"
+  },
+  "nav": {
+    "home": "首页",
+    "products": "产品",
+    "countries": "国家",
+    "compare": "对比",
+    "about": "关于"
+  },
+  "home": {
+    "hero_title": "AI 订阅价格全球查询",
+    "hero_subtitle": "对比 ChatGPT、Claude、Gemini 等产品在 50+ 国家的订阅价格。覆盖网页端直接订阅和 App Store 内购，含税信息一目了然。",
+    "search_placeholder": "搜索 AI 产品或国家...",
+    "popular_products": "热门产品",
+    "cheapest_regions": "低价区域",
+    "view_all": "查看全部"
+  },
+  "product": {
+    "web_tab": "网页端订阅",
+    "appstore_tab": "App Store",
+    "playstore_tab": "Google Play",
+    "price_table": "各国价格对比",
+    "country": "国家",
+    "currency": "货币",
+    "display_price": "页面标价",
+    "tax_handling": "税务",
+    "usd_equivalent": "≈ 美元",
+    "vs_us": "vs 美区",
+    "actual_charge": "估实际扣款",
+    "tax_inclusive": "含 {percent}% {type}",
+    "tax_exclusive": "不含税 + {type} 另计",
+    "cheapest": "最便宜",
+    "most_expensive": "最贵",
+    "sort_by_price": "按价格排序",
+    "filter_region": "筛选地区",
+    "all_regions": "全部地区",
+    "plans": "订阅方案"
+  },
+  "country": {
+    "title": "{country} AI 产品订阅价格",
+    "all_products": "{country} 所有 AI 产品"
+  },
+  "compare": {
+    "title": "AI 订阅价格对比",
+    "select_products": "选择要对比的产品",
+    "add_product": "添加产品"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "last_updated": "最近更新",
+    "monthly": "/月",
+    "annual": "/年",
+    "save_pct": "省 {percent}%",
+    "more_expensive_pct": "贵 {percent}%"
+  }
+}

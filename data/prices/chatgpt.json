@@ -1,0 +1,67 @@
+{
+  "product": {
+    "id": 1, "name": "ChatGPT", "slug": "chatgpt",
+    "logoUrl": null, "descriptionEn": "OpenAI's conversational AI.", "descriptionZh": "OpenAI 对话式 AI。",
+    "pricingModel": "regional", "basePriceUsd": 20,
+    "plans": [
+      { "id": 1, "name": "Plus", "slug": "plus", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "GPT-4o access", "descriptionZh": "GPT-4o 访问" },
+      { "id": 2, "name": "Pro", "slug": "pro", "billingPeriod": "monthly", "tierOrder": 2, "descriptionEn": "Unlimited access", "descriptionZh": "无限使用" },
+      { "id": 3, "name": "Go", "slug": "go", "billingPeriod": "monthly", "tierOrder": 0, "descriptionEn": "Budget tier", "descriptionZh": "廉价版" }
+    ]
+  },
+  "webPrices": {
+    "plus": [
+      { "countryCode": "US", "currencyCode": "USD", "symbol": "$", "displayAmount": 20.00, "displayTaxHandling": "exclusive", "taxType": "sales_tax", "taxPercent": null, "taxInclusiveAmount": null, "taxExclusiveAmount": 20.00, "calculatedUsdEquivalent": 20.00, "premiumVsUsPct": 0, "source": "official", "fetchedAt": "2026-05-16" },
+      { "countryCode": "GB", "currencyCode": "GBP", "symbol": "£", "displayAmount": 20.00, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 20, "taxInclusiveAmount": 20.00, "taxExclusiveAmount": 16.67, "calculatedUsdEquivalent": 25.40, "premiumVsUsPct": 27.0, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "DE", "currencyCode": "EUR", "symbol": "€", "displayAmount": 23.00, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 19, "taxInclusiveAmount": 23.00, "taxExclusiveAmount": 19.33, "calculatedUsdEquivalent": 25.20, "premiumVsUsPct": 26.0, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "JP", "currencyCode": "JPY", "symbol": "¥", "displayAmount": 3000, "displayTaxHandling": "inclusive", "taxType": "jct", "taxPercent": 10, "taxInclusiveAmount": 3000, "taxExclusiveAmount": 2727, "calculatedUsdEquivalent": 19.17, "premiumVsUsPct": -4.2, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "KR", "currencyCode": "KRW", "symbol": "₩", "displayAmount": 29000, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 10, "taxInclusiveAmount": 29000, "taxExclusiveAmount": 26364, "calculatedUsdEquivalent": 21.17, "premiumVsUsPct": 5.9, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "IN", "currencyCode": "INR", "symbol": "₹", "displayAmount": 1999, "displayTaxHandling": "inclusive", "taxType": "gst", "taxPercent": 18, "taxInclusiveAmount": 1999, "taxExclusiveAmount": 1694, "calculatedUsdEquivalent": 22.93, "premiumVsUsPct": 14.7, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "BR", "currencyCode": "BRL", "symbol": "R$", "displayAmount": 99.90, "displayTaxHandling": "exclusive", "taxType": "vat", "taxPercent": 0, "taxInclusiveAmount": null, "taxExclusiveAmount": 99.90, "calculatedUsdEquivalent": 17.47, "premiumVsUsPct": -12.7, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "TR", "currencyCode": "USD", "symbol": "$", "displayAmount": 20.00, "displayTaxHandling": "exclusive", "taxType": "other", "taxPercent": null, "taxInclusiveAmount": null, "taxExclusiveAmount": 20.00, "calculatedUsdEquivalent": 20.00, "premiumVsUsPct": 0, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "NG", "currencyCode": "NGN", "symbol": "₦", "displayAmount": 31500, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 8, "taxInclusiveAmount": 31500, "taxExclusiveAmount": 29167, "calculatedUsdEquivalent": 20.32, "premiumVsUsPct": 1.6, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "PH", "currencyCode": "PHP", "symbol": "₱", "displayAmount": 1100, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 12, "taxInclusiveAmount": 1100, "taxExclusiveAmount": 982, "calculatedUsdEquivalent": 19.03, "premiumVsUsPct": -4.9, "source": "cdp_browser", "fetchedAt": "2026-05-16" },
+      { "countryCode": "CA", "currencyCode": "CAD", "symbol": "C$", "displayAmount": 25.00, "displayTaxHandling": "exclusive", "taxType": "gst", "taxPercent": null, "taxInclusiveAmount": null, "taxExclusiveAmount": 25.00, "calculatedUsdEquivalent": 18.25, "premiumVsUsPct": -8.8, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "AU", "currencyCode": "AUD", "symbol": "A$", "displayAmount": 30.00, "displayTaxHandling": "inclusive", "taxType": "gst", "taxPercent": 10, "taxInclusiveAmount": 30.00, "taxExclusiveAmount": 27.27, "calculatedUsdEquivalent": 19.61, "premiumVsUsPct": -2.0, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "ZA", "currencyCode": "ZAR", "symbol": "R", "displayAmount": 399, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 15, "taxInclusiveAmount": 399, "taxExclusiveAmount": 347, "calculatedUsdEquivalent": 21.45, "premiumVsUsPct": 7.3, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "MX", "currencyCode": "MXN", "symbol": "MX$", "displayAmount": 399, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 16, "taxInclusiveAmount": 399, "taxExclusiveAmount": 344, "calculatedUsdEquivalent": 19.85, "premiumVsUsPct": -0.8, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "ID", "currencyCode": "IDR", "symbol": "Rp", "displayAmount": 349000, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 11, "taxInclusiveAmount": 349000, "taxExclusiveAmount": 314414, "calculatedUsdEquivalent": 21.41, "premiumVsUsPct": 7.1, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "MY", "currencyCode": "MYR", "symbol": "RM", "displayAmount": 99.90, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": null, "taxInclusiveAmount": 99.90, "taxExclusiveAmount": null, "calculatedUsdEquivalent": 21.35, "premiumVsUsPct": 6.8, "source": "community", "fetchedAt": "2026-05-16" },
+      { "countryCode": "TH", "currencyCode": "THB", "symbol": "฿", "displayAmount": 699, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 7, "taxInclusiveAmount": 699, "taxExclusiveAmount": 653, "calculatedUsdEquivalent": 19.20, "premiumVsUsPct": -4.0, "source": "community", "fetchedAt": "2026-05-16" },
+      { "countryCode": "VN", "currencyCode": "VND", "symbol": "₫", "displayAmount": 522500, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 10, "taxInclusiveAmount": 522500, "taxExclusiveAmount": 475000, "calculatedUsdEquivalent": 20.69, "premiumVsUsPct": 3.4, "source": "community", "fetchedAt": "2026-05-16" },
+      { "countryCode": "AE", "currencyCode": "AED", "symbol": "AED", "displayAmount": 72.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 5, "taxInclusiveAmount": 72.99, "taxExclusiveAmount": 69.51, "calculatedUsdEquivalent": 19.87, "premiumVsUsPct": -0.7, "source": "community", "fetchedAt": "2026-05-16" },
+      { "countryCode": "IL", "currencyCode": "ILS", "symbol": "₪", "displayAmount": 73.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 17, "taxInclusiveAmount": 73.99, "taxExclusiveAmount": 63.24, "calculatedUsdEquivalent": 20.16, "premiumVsUsPct": 0.8, "source": "openai_api", "fetchedAt": "2026-05-16" }
+    ],
+    "pro": [
+      { "countryCode": "US", "currencyCode": "USD", "symbol": "$", "displayAmount": 200.00, "displayTaxHandling": "exclusive", "taxType": "sales_tax", "taxPercent": null, "calculatedUsdEquivalent": 200.00, "premiumVsUsPct": 0, "source": "official", "fetchedAt": "2026-05-16" },
+      { "countryCode": "GB", "currencyCode": "GBP", "symbol": "£", "displayAmount": 200.00, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 20, "calculatedUsdEquivalent": 254.00, "premiumVsUsPct": 27.0, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "DE", "currencyCode": "EUR", "symbol": "€", "displayAmount": 229.00, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 19, "calculatedUsdEquivalent": 251.00, "premiumVsUsPct": 25.5, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "JP", "currencyCode": "JPY", "symbol": "¥", "displayAmount": 30000, "displayTaxHandling": "inclusive", "taxType": "jct", "taxPercent": 10, "calculatedUsdEquivalent": 191.70, "premiumVsUsPct": -4.2, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "IN", "currencyCode": "INR", "symbol": "₹", "displayAmount": 19900, "displayTaxHandling": "inclusive", "taxType": "gst", "taxPercent": 18, "calculatedUsdEquivalent": 228.40, "premiumVsUsPct": 14.2, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "BR", "currencyCode": "BRL", "symbol": "R$", "displayAmount": 999.90, "displayTaxHandling": "exclusive", "taxType": "vat", "taxPercent": 0, "calculatedUsdEquivalent": 174.81, "premiumVsUsPct": -12.6, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "PH", "currencyCode": "PHP", "symbol": "₱", "displayAmount": 11490, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 12, "calculatedUsdEquivalent": 198.79, "premiumVsUsPct": -0.6, "source": "openai_api", "fetchedAt": "2026-05-16" },
+      { "countryCode": "MY", "currencyCode": "MYR", "symbol": "RM", "displayAmount": 999.90, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": null, "calculatedUsdEquivalent": 213.65, "premiumVsUsPct": 6.8, "source": "community", "fetchedAt": "2026-05-16" },
+      { "countryCode": "TH", "currencyCode": "THB", "symbol": "฿", "displayAmount": 6999, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 7, "calculatedUsdEquivalent": 192.29, "premiumVsUsPct": -3.9, "source": "community", "fetchedAt": "2026-05-16" }
+    ],
+    "go": [
+      { "countryCode": "IN", "currencyCode": "INR", "symbol": "₹", "displayAmount": 399, "displayTaxHandling": "inclusive", "taxType": "gst", "taxPercent": 18, "calculatedUsdEquivalent": 4.58, "premiumVsUsPct": 0, "source": "official", "fetchedAt": "2026-05-16" },
+      { "countryCode": "PH", "currencyCode": "PHP", "symbol": "₱", "displayAmount": 300, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 12, "calculatedUsdEquivalent": 5.19, "premiumVsUsPct": 0, "source": "cdp_browser", "fetchedAt": "2026-05-16" },
+      { "countryCode": "TH", "currencyCode": "THB", "symbol": "฿", "displayAmount": 259, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 7, "calculatedUsdEquivalent": 7.12, "premiumVsUsPct": 0, "source": "community", "fetchedAt": "2026-05-16" },
+      { "countryCode": "MY", "currencyCode": "MYR", "symbol": "RM", "displayAmount": 38.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": null, "calculatedUsdEquivalent": 8.33, "premiumVsUsPct": 0, "source": "community", "fetchedAt": "2026-05-16" },
+      { "countryCode": "BR", "currencyCode": "BRL", "symbol": "R$", "displayAmount": 39.90, "displayTaxHandling": "exclusive", "taxType": "vat", "taxPercent": 0, "calculatedUsdEquivalent": 6.98, "premiumVsUsPct": 0, "source": "community", "fetchedAt": "2026-05-16" }
+    ]
+  },
+  "appStorePrices": {
+    "plus": [
+      { "countryCode": "US", "currencyCode": "USD", "symbol": "$", "displayAmount": 19.99, "displayTaxHandling": "inclusive", "taxType": "none", "taxPercent": null, "calculatedUsdEquivalent": 19.99, "premiumVsUsPct": 0, "source": "app_store", "fetchedAt": "2026-05-16" },
+      { "countryCode": "TR", "currencyCode": "TRY", "symbol": "₺", "displayAmount": 499.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 20, "calculatedUsdEquivalent": 13.89, "premiumVsUsPct": -30.5, "source": "app_store", "fetchedAt": "2026-05-16" },
+      { "countryCode": "AR", "currencyCode": "USD", "symbol": "$", "displayAmount": 5.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": null, "calculatedUsdEquivalent": 5.99, "premiumVsUsPct": -70.0, "source": "app_store", "fetchedAt": "2026-05-16" },
+      { "countryCode": "NG", "currencyCode": "NGN", "symbol": "₦", "displayAmount": 9900, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 8, "calculatedUsdEquivalent": 6.39, "premiumVsUsPct": -68.0, "source": "app_store", "fetchedAt": "2026-05-16" },
+      { "countryCode": "IN", "currencyCode": "INR", "symbol": "₹", "displayAmount": 1999, "displayTaxHandling": "inclusive", "taxType": "gst", "taxPercent": 18, "calculatedUsdEquivalent": 22.93, "premiumVsUsPct": 14.7, "source": "app_store", "fetchedAt": "2026-05-16" },
+      { "countryCode": "GB", "currencyCode": "GBP", "symbol": "£", "displayAmount": 19.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 20, "calculatedUsdEquivalent": 25.39, "premiumVsUsPct": 27.0, "source": "app_store", "fetchedAt": "2026-05-16" }
+    ],
+    "go": [
+      { "countryCode": "TR", "currencyCode": "TRY", "symbol": "₺", "displayAmount": 249.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 20, "calculatedUsdEquivalent": 6.94, "premiumVsUsPct": 0, "source": "app_store", "fetchedAt": "2026-05-16" }
+    ]
+  }
+}

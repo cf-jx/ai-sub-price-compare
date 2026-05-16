@@ -1,0 +1,23 @@
+{
+  "product": {
+    "id": 3, "name": "Gemini", "slug": "gemini",
+    "logoUrl": null, "descriptionEn": "Google's AI.", "descriptionZh": "Google AI。",
+    "pricingModel": "regional", "basePriceUsd": 9.99,
+    "plans": [
+      { "id": 6, "name": "AI Pro", "slug": "ai-pro", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "Gemini Advanced + 2TB", "descriptionZh": "Gemini Advanced + 2TB" }
+    ]
+  },
+  "webPrices": {
+    "ai-pro": [
+      { "countryCode": "US", "currencyCode": "USD", "symbol": "$", "displayAmount": 9.99, "displayTaxHandling": "exclusive", "taxType": "sales_tax", "taxPercent": null, "calculatedUsdEquivalent": 9.99, "premiumVsUsPct": 0, "source": "official", "fetchedAt": "2026-05-16" },
+      { "countryCode": "TR", "currencyCode": "TRY", "symbol": "₺", "displayAmount": 199.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 20, "calculatedUsdEquivalent": 5.55, "premiumVsUsPct": -44.4, "source": "web_search", "fetchedAt": "2026-05-16" },
+      { "countryCode": "JP", "currencyCode": "JPY", "symbol": "¥", "displayAmount": 2900, "displayTaxHandling": "inclusive", "taxType": "jct", "taxPercent": 10, "calculatedUsdEquivalent": 18.53, "premiumVsUsPct": 85.4, "source": "web_search", "fetchedAt": "2026-05-16" },
+      { "countryCode": "AU", "currencyCode": "AUD", "symbol": "A$", "displayAmount": 32.99, "displayTaxHandling": "inclusive", "taxType": "gst", "taxPercent": 10, "calculatedUsdEquivalent": 21.56, "premiumVsUsPct": 115.8, "source": "web_search", "fetchedAt": "2026-05-16" },
+      { "countryCode": "ZA", "currencyCode": "ZAR", "symbol": "R", "displayAmount": 429.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 15, "calculatedUsdEquivalent": 23.12, "premiumVsUsPct": 131.4, "source": "web_search", "fetchedAt": "2026-05-16" },
+      { "countryCode": "DE", "currencyCode": "EUR", "symbol": "€", "displayAmount": 21.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 19, "calculatedUsdEquivalent": 24.10, "premiumVsUsPct": 141.3, "source": "web_search", "fetchedAt": "2026-05-16" },
+      { "countryCode": "GB", "currencyCode": "GBP", "symbol": "£", "displayAmount": 18.99, "displayTaxHandling": "inclusive", "taxType": "vat", "taxPercent": 20, "calculatedUsdEquivalent": 24.11, "premiumVsUsPct": 141.4, "source": "web_search", "fetchedAt": "2026-05-16" },
+      { "countryCode": "IN", "currencyCode": "INR", "symbol": "₹", "displayAmount": 1950, "displayTaxHandling": "inclusive", "taxType": "gst", "taxPercent": 18, "calculatedUsdEquivalent": 22.38, "premiumVsUsPct": 124.0, "source": "web_search", "fetchedAt": "2026-05-16" }
+    ]
+  },
+  "appStorePrices": { "ai-pro": [] }
+}

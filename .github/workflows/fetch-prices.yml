@@ -1,0 +1,46 @@
+name: Fetch Prices
+
+on:
+  schedule:
+    # Daily at 07:00 UTC for exchange rates + App Store
+    - cron: "7 7 * * *"
+    # Weekly on Sunday at 08:00 UTC for web pricing
+    - cron: "17 8 * * 0"
+  workflow_dispatch:
+
+jobs:
+  fetch-exchange-rates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch exchange rates
+        run: |
+          curl -s https://api.frankfurter.app/latest?from=USD > data/exchange-rates.json
+          echo "Exchange rates updated at $(date -Iseconds)"
+      - name: Commit exchange rate updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/exchange-rates.json
+          git diff --staged --quiet || (git commit -m "chore: update exchange rates [skip ci]" && git push)
+
+  # Placeholder for web pricing fetch — uses Node.js script with CDP Proxy / API calls
+  # fetch-web-prices:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 22
+  #     - run: npm ci --legacy-peer-deps
+  #     - name: Fetch web prices
+  #       run: npx tsx src/scripts/fetch-prices.ts
+  #     - name: Commit price updates
+  #       run: |
+  #         git config user.name "github-actions[bot]"
+  #         git config user.email "github-actions[bot]@users.noreply.github.com"
+  #         git add data/
+  #         git diff --staged --quiet || (git commit -m "chore: update pricing data [skip ci]" && git push)

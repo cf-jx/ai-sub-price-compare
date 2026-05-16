@@ -1,0 +1,16 @@
+{
+  "product": {
+    "id": 6, "name": "Midjourney", "slug": "midjourney",
+    "logoUrl": null, "descriptionEn": "AI image generation. Global uniform USD pricing.", "descriptionZh": "AI 图像生成。全球统一 USD 定价。",
+    "pricingModel": "uniform", "basePriceUsd": 10,
+    "plans": [
+      { "id": 10, "name": "Basic", "slug": "basic", "billingPeriod": "monthly", "tierOrder": 1, "descriptionEn": "~200 images/mo", "descriptionZh": "~200 张/月" }
+    ]
+  },
+  "webPrices": {
+    "basic": [
+      { "countryCode": "US", "currencyCode": "USD", "symbol": "$", "displayAmount": 10.00, "displayTaxHandling": "exclusive", "taxType": "sales_tax", "taxPercent": null, "calculatedUsdEquivalent": 10.00, "premiumVsUsPct": 0, "source": "official", "fetchedAt": "2026-05-16" }
+    ]
+  },
+  "appStorePrices": { "basic": [] }
+}

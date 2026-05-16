@@ -1,0 +1,62 @@
+{
+  "site": {
+    "title": "AI Subscription Price Comparison",
+    "description": "Compare AI subscription prices across countries. ChatGPT, Claude, Gemini, Perplexity & more — Web and App Store pricing with tax details.",
+    "tagline": "Find the cheapest way to subscribe"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "countries": "Countries",
+    "compare": "Compare",
+    "about": "About"
+  },
+  "home": {
+    "hero_title": "AI Subscription Prices Worldwide",
+    "hero_subtitle": "Compare ChatGPT, Claude, Gemini and more across 50+ countries. Web subscription and App Store prices, with tax details included.",
+    "search_placeholder": "Search AI product or country...",
+    "popular_products": "Popular Products",
+    "cheapest_regions": "Cheapest Regions",
+    "view_all": "View All"
+  },
+  "product": {
+    "web_tab": "Web Subscription",
+    "appstore_tab": "App Store",
+    "playstore_tab": "Google Play",
+    "price_table": "Price Comparison by Country",
+    "country": "Country",
+    "currency": "Currency",
+    "display_price": "Display Price",
+    "tax_handling": "Tax",
+    "usd_equivalent": "≈ USD",
+    "vs_us": "vs US",
+    "actual_charge": "Est. Actual Charge",
+    "tax_inclusive": "incl. {percent}% {type}",
+    "tax_exclusive": "excl. tax + {type} extra",
+    "cheapest": "Cheapest",
+    "most_expensive": "Most Expensive",
+    "sort_by_price": "Sort by price",
+    "filter_region": "Filter region",
+    "all_regions": "All Regions",
+    "plans": "Plans"
+  },
+  "country": {
+    "title": "AI Subscription Prices in {country}",
+    "all_products": "All AI Products in {country}"
+  },
+  "compare": {
+    "title": "Compare AI Subscription Prices",
+    "select_products": "Select products to compare",
+    "add_product": "Add Product"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "last_updated": "Last updated",
+    "monthly": "/mo",
+    "annual": "/yr",
+    "save_pct": "Save {percent}%",
+    "more_expensive_pct": "{percent}% more"
+  }
+}
